@@ -1,0 +1,23 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+myenv/
+
+# Database files
+instance/*.db
+
+# Environment variables
+.env
+secret_tools.py
+
+# Logs
+*.log
+
+# IDE or editor folders
+.vscode/
+.idea/
+*.swp

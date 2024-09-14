@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Shivashish | Home Page {% endblock %}
+{% block content %}
+
+<div class="row align-items-start g-3 mt-4 back-img">
+    <div class="col-lg-9">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Shivashish Yadav!
+        </h1>
+        <p class="lead custom-font">
+            Hi, I&apos;m Shivashish Yadav, a skilled web developer with expertise in creating
+            dynamic and
+            responsive
+            websites. I specialize in
+            front-end technologies like HTML, CSS, and JavaScript, and have hands-on experience with back-end framework
+            such as
+            Flask in Python.
+        </p>
+        <p class="custom-font">
+            My approach combines a deep understanding of user experience with a commitment to
+            clean,
+            efficient
+            code. Whether working independently or as part of a team, I&apos;m dedicated to delivering high-quality
+            solutions
+            that meet
+            both client needs and industry standards.
+        </p>
+        {% include 'logo.html' %}
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock %}

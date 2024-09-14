@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Shivashish | Sign Up {% endblock %}
+{% block content %}
+<div>
+
+    <form id="signup" action="{{ url_for('login') }}" method="POST" class="needs-validation login-signup-form">
+
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", autocomplete="email") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.password.label(class="form-label")}}
+            {{ form.password(class="form-control") }}
+        </div>
+
+        <button type="submit" class="btn btn-success login-signup-button">Let me in</button>
+    </form>
+    <div id="forget">
+        <a href="{{url_for('pending')}}">Forget Password</a> |
+        <a href="{{url_for('pending')}}">Reset Password</a>
+    </div>
+</div>
+
+{% endblock %}

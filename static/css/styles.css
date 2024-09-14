@@ -1,0 +1,144 @@
+header {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.3rem;
+    word-spacing: 1px;
+    letter-spacing: 0.01rem;
+}
+
+.custom-font {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    line-height: 1.3rem;
+}
+
+.nav {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/* Logo image */
+.circle-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.back-img {
+    background: linear-gradient(to right, black, black, rgb(45, 45, 39));
+    box-shadow: 0 0 10px #6c757d;
+}
+
+.custom-border {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    margin: .2rem;
+    border: 1px solid green;
+}
+
+.custom-border div h3 {
+    color: aliceblue;
+    padding: 4px;
+}
+
+
+/* Style for the collapse menu */
+.navbar-collapse {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Style the navbar toggler icon */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23fff" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>');
+}
+
+/* Ensure dropdown menu takes a small width like WhatsApp settings */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        width: 150px;
+        /* Adjust as needed */
+        position: absolute;
+        top: 80px;
+        /* Adjust based on header height */
+        right: 0;
+        box-shadow: 0 0 10px #6c757d;
+        border-radius: 12px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 0 10px 10px;
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff;
+    }
+
+    .nav-link:active {
+        color: green;
+    }
+
+    .btn-outline-light {
+        border-color: #fff;
+        color: #fff;
+    }
+
+    .btn-light {
+        background-color: #fff;
+        color: #000;
+        margin: 10px 0 10px 0;
+    }
+
+    .btn-light:hover {
+        background-color: #f8f9fa;
+        color: #000;
+    }
+
+}
+
+/* Resume style */
+.heading {
+    border-bottom: 2px solid white;
+    display: inline-block;
+}
+
+
+/* about section main image class */
+.custom-circle {
+    width: 100%;
+    border-radius: 5%;
+    object-fit: cover;
+    filter: drop-shadow(100px 20px 0px rgba(12, 12, 12, 0.5)) brightness(80%) contrast(200%);
+}
+
+/* login signup form input fields setup */
+.login-signup-form {
+    width: 50%;
+    margin: 10vh auto;
+}
+
+.login-signup-button {
+    width: 100%;
+}
+
+@media (max-width:769px) {
+    .login-signup-form {
+        width: 100%;
+        margin: 10vh auto;
+    }
+}
+
+/* login page forget password setup */
+#forget {
+    text-align: center;
+}

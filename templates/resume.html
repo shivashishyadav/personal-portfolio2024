@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %} Shivashish | Resume {% endblock %}
+
+{% block content %}
+<div>
+    <h1 class="col-md-6">My Resume</h1>
+    <a href="https://drive.google.com/uc?export=download&id=1mIE5lxlilzNYDzN2EOmpLIExhmj48TSs">Download Resume as a
+        PDF (This must be update in future)</a>
+    <hr>
+    <h2 class="heading">Education</h2>
+    <div class="row my-4">
+        <div class="col-md-6">
+            <h3>Schooling</h3>
+            <p class="mb-0"><strong>School Name: </strong> <em>{{ schooling.school_name }}</em></p>
+            <p class="mb-0"><strong>Duration: </strong> <em>{{ schooling.duration }}</em></p>
+            <p class="mb-4"><strong>Achievements: </strong><em>{{ schooling.achievements }}</em></p>
+        </div>
+        <div class="col-md-6">
+            <h3>College</h3>
+            <p class="mb-0"><strong>College Name: </strong><em>{{ college.college_name }}</em></p>
+            <p class="mb-0"><strong>Degree: </strong><em>{{ college.graduation }}</em></p>
+            <p class="mb-0"><strong>Duration: </strong><em>{{ college.duration }}</em></p>
+            <p class="mb-0"><strong>Achievements: </strong><em>{{ college.achievements }}</em></p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h2 class="heading">Skills</h2>
+        <ul>
+            {% for skill in skills %}
+            <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <h2 class="mt-4 heading">Projects</h2>
+        <ul class="row">
+            {% for project in projects %}
+            <li class="col-md-5">
+                <h3 class="mb-0">{{ project.title }}</h3>
+                <p class="p-0 m-0"><strong>Description:</strong> {{ project.description }}</p>
+                <p class="m-0 p-0"><strong>Technologies:</strong> {{ project.technologies }}</p>
+                <p class="mb-4"><a href="{{url_for('pending')}}">Project&apos;s Github Link</a></p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% include 'footer.html'%}
+{% endblock %}
