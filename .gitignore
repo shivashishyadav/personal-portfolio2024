@@ -12,7 +12,7 @@ instance/*.db
 
 # Environment variables
 .env
-secret_tools.py
+*.txt
 
 # Logs
 *.log

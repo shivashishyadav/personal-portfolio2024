@@ -6,7 +6,6 @@ from flask import (
     request,
     redirect,
     url_for,
-    send_from_directory,
 )
 
 # CSRFProtect(app) will automatically generate a CSRF token for each form that is rendered by your Flask application. This token is a unique value associated with the user’s session. CSRFProtect provides a straightforward way to implement CSRF protection in a Flask application, ensuring that your forms are secure and that users are protected from common web security vulnerabilities.
@@ -26,6 +25,9 @@ from flask_login import (
     current_user,
 )
 
+from dotenv import load_dotenv
+import os
+
 # Importing flask form to create form
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField, TextAreaField, PasswordField
@@ -41,22 +43,29 @@ from flask_sqlalchemy import SQLAlchemy
 from smtplib import SMTP
 
 # import secret keys/password/mail from other files
-from secret_tools import (
-    SECRET_KEY,
-    MY_MAIL,
-    MY_PASS,
-    DATABASE_URI,
+from myinfo import (
     schooling,
     college,
     skills,
     projects,
 )
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Configuration
+SECRET_KEY = os.getenv("SECRET_KEY")
+MY_MAIL = os.getenv("MY_MAIL")
+MY_PASS = os.getenv("MY_PASS")
+DATABASE_URI = os.getenv("DATABASE_URI")
+
 # app configuring
 app = Flask(__name__)
 app.config["SECRET_KEY"] = SECRET_KEY
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Correct key name
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+# Correct key name
 csrf = CSRFProtect(app)
 db = SQLAlchemy(app)
 Bootstrap5(app)

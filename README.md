@@ -16,13 +16,8 @@ This is a portfolio website built with Flask and Bootstrap. It showcases various
 
 Make sure you have Python 3.x installed. You'll also need `pip` to install the required packages.
 
-## secret_tools.py
-inside secret_tools: 
-
-MY_MAIL = "your_email"
-MY_PASS = "your mail password"
-SECRET_KEY = "your secret key"
-DATABASE_URI = "sqlite:///contact.db"
+## myinfo.py
+inside myinfo: 
 
 schooling = {
     "school_name": "Your School Name",
