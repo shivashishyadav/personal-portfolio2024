@@ -165,6 +165,8 @@ def about():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     contact_form = ContactForm()
+    message = f"Subject: {contact_form.name.data}\n\nEmail: {contact_form.email.data}\nSubject: {contact_form.subject.data}\nUser Description: {contact_form.description.data}."
+
     if contact_form.validate_on_submit():
         # create a row of data entered by user to contact form
         row = ContactDetails(
@@ -178,13 +180,17 @@ def contact():
             db.session.add(row)
             db.session.commit()  # commit to add
             flash("Message sent successfully!", "success")
+            send_email(message=message, email=contact_form.email.data)
+
         except Exception as e:
             # if any reason not commited then roll back to previous state
             db.session.rollback()
 
             # if any error occurs then send error message to own email
-            message = f"Subject: {contact_form.name.data}\n\nEmail: {contact_form.email.data}\nSubject: {contact_form.subject.data}\nUser Description: {contact_form.description.data}\nTrying to send the contact details but {e} occurs."
-            send_email(message=message, email=contact_form.email.data)
+            error_message = (
+                message + f"\nTrying to send the contact details but {e} occurs."
+            )
+            send_email(message=error_message, email=contact_form.email.data)
 
             # give user to error message
             flash("An error occurred, Try again", "danger")
