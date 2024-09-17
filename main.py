@@ -80,11 +80,11 @@ def load_user(user_id):
 
 # Contact database tabel
 class ContactDetails(db.Model):
-    __tablename__ = "ContactedPeople"
+    __tablename__ = "Contacted People"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False, unique=True)
-    subject = db.Column(db.String(200), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    subject = db.Column(db.String(200), nullable=True)
     description = db.Column(db.Text, nullable=True)
 
     def __repr__(self) -> str:
@@ -187,7 +187,7 @@ def contact():
             send_email(message=message, email=contact_form.email.data)
 
             # give user to error message
-            flash(f"An error occurred: {e}", "error")
+            flash("An error occurred, Try again", "danger")
 
     return render_template("contact.html", contact_form=contact_form)
 
