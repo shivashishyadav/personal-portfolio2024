@@ -235,7 +235,7 @@ def signup():
             )
         except Exception as e:
             db.session.rollback()
-            flash(f"An error occurred: {e}", "error")
+            flash(f"An error occurred", "error")
 
     # for get method
     return render_template("signup.html", form=signup_form)
