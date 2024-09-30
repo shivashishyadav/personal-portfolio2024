@@ -78,19 +78,6 @@ def load_user(user_id):
     return Users.query.get(int(user_id))
 
 
-# Contact database tabel
-class ContactDetails(db.Model):
-    __tablename__ = "Contacted People"
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False)
-    subject = db.Column(db.String(200), nullable=True)
-    description = db.Column(db.Text, nullable=True)
-
-    def __repr__(self) -> str:
-        return f"<ContactDetails (id={self.id}, name={self.name}, email={self.email}, subject={self.subject}, description={self.description})>"
-
-
 # users database table
 class Users(db.Model, UserMixin):
     __tablename__ = "users"
@@ -168,23 +155,12 @@ def contact():
     message = f"Subject: {contact_form.name.data}\n\nEmail: {contact_form.email.data}\nSubject: {contact_form.subject.data}\nUser Description: {contact_form.description.data}."
 
     if contact_form.validate_on_submit():
-        # create a row of data entered by user to contact form
-        row = ContactDetails(
-            name=contact_form.name.data,
-            email=contact_form.email.data,
-            subject=contact_form.subject.data,
-            description=contact_form.description.data,
-        )
         try:
-            # put the row inside database table named class "ContactDetails"
-            db.session.add(row)
-            db.session.commit()  # commit to add
             flash("Message sent successfully!", "success")
             send_email(message=message, email=contact_form.email.data)
 
         except Exception as e:
             # if any reason not commited then roll back to previous state
-            db.session.rollback()
 
             # if any error occurs then send error message to own email
             error_message = (
