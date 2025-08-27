@@ -24,13 +24,6 @@
         </ul>
     </nav>
 
-    <!-- Buttons for large screens -->
-    <div class="d-none d-lg-block col-lg-4 text-end">
-        <button type="button" class="btn btn-outline-light me-2" onclick="window.location.href='/login'">Login</button>
-        <button type="button" class="btn btn-light me-2" onclick="window.location.href='/signup'">Sign-up</button>
-        <button type="button" class="btn btn-warning" onclick="window.location.href='/logout'">Log-out</button>
-    </div>
-
     <!-- Dropdown menu for small screens -->
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav">
@@ -38,18 +31,6 @@
             <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('resume') }}">Resume</a></li>
-            <li class="nav-item">
-                <button type="button" class="btn btn-outline-success w-100"
-                    onclick="window.location.href='/login'">Login</button>
-            </li>
-            <li class="nav-item">
-                <button type="button" class="btn btn-light w-100"
-                    onclick="window.location.href='/signup'">Sign-up</button>
-            </li>
-            <li class="nav-item">
-                <button type="button" class="btn btn-warning w-100"
-                    onclick="window.location.href='/logout'">Log-out</button>
-            </li>
         </ul>
     </div>
 </header>
