@@ -10,7 +10,6 @@ This is a portfolio website built with Flask and Bootstrap. It showcases various
 - Resume section to showcase projects & resume (A link provided to download resume or you can read the browser page as well.)
 - About section with personal information & Interests
 - Contact form for getting in touch
-- signup/login/logout features
 
 ## Prerequisites
 
